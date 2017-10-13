@@ -11,6 +11,7 @@ def post_detail(request,id=None):
     return render(request,"post_detail.html",{'instance':article})
 
 def post_create(request):
+    print("I was called")
     form = postform(request.POST or None )
     if form.is_valid():
         article = form.save(commit= False)
@@ -20,7 +21,7 @@ def post_create(request):
 
 
 def post_edit(request,id=None):
-    article = Post.objects.get(id=id)
+    article = get_object_or_404(Post , id = id)
     form = postform(request.POST or None, instance  = article )
     if form.is_valid():
         article = form.save(commit= False)
