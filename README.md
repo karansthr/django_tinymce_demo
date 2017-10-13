@@ -1,4 +1,3 @@
-# django_tinymce_example
 This is a sample repository illustrating how to set up TinyCE editor with filebrowser in a Django site. For syntax highlighting, highlightjs is used.
 
 
