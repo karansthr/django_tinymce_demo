@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html  lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link  rel="stylesheet" href="{% static 'css/foundation.min.css' %}">       {# addition css  #}
+
+        <link href="{% static "styles/github.css" %}" rel="stylesheet">             {# github theme for highlightjs #}
+
+        <title>{% block head_title %} MY SITE {%  endblock head_title %}</title>
+        {% block head_extra %}{% endblock %}
+    </head>
+
+    <style>{% block style %}{% endblock style %}</style>
+     <body>
+
+       <div class="top-bar">
+         <div class="top-bar-left">
+            <a style="color:grey" href="/">MY_SITE</a>
+         </div>
+         <div class="top-bar-right">
+           <h4><small> A Tech Blog </small></h6>
+         </div>
+       </div>
+<br>
+        {% block content %}
+
+        {% endblock content %}
+
+
+    </body>
+
+
+    <script src="{% static "highlight.pack.js" %}"></script>          {# required for syntax hightlighting #}
+    <script>hljs.initHighlightingOnLoad();</script>                   {# required for syntax hightlighting #}
+
+    <script  src="{% static 'js/vendor/jquery.js' %}"></script>       {# addition javascripts  #}
+    <script  src="{% static 'js/vedor/what-input.js' %}"></script>
+    <script  src="{% static 'js/foundation.min.js'%}"></script>
+
+    {% block scripts %} {% endblock %}
+	
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<br>
+ <a href="/create" <div class="row align-center"><div class="column large-5 button">Create Post</div></div></a>
+<br>
+    <div class="row align-spaced">
+              {% for instance in posts %}
+
+                  <div class="column small-12 medium-5 large-5 card" >
+                        <h3 class="text-center"><a  href="/posts/{{ instance.id }}">{{instance.title}}</a></h3>
+                        <p>{{ instance.content | safe | truncatechars_html:50  }}</p>
+                        <hr><br>
+                  </div>
+
+                {% endfor %}
+    </div>
+{% endblock %}

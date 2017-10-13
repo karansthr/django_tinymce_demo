@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<br>
+ <a href="{{ instance.get_absolute_url }}/edit" <div class="row align-center"><div class="column large-5 button">Edit Post</div></div></a>
+<br>
+
+  <div class="row align-center">
+    <div class="column">
+
+    <h3> {{instance.title}}</h3>
+          <br>
+    <div > {{ instance.content | safe }}       </div>
+
+    </div>
+  </div
+
+{% endblock %}
