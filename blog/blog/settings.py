@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -25,21 +24,14 @@ SECRET_KEY = 'uyeo5i-e(4hf9w0uaf7i2itq6%2h$367qx=)3nfs(rz-edo0l1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1']
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'filebrowser',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'tinymce',
-    'posts'
+    'filebrowser', 'django.contrib.admin', 'django.contrib.auth',
+    'django.contrib.contenttypes', 'django.contrib.sessions',
+    'django.contrib.messages', 'django.contrib.staticfiles', 'tinymce', 'posts'
 ]
 
 MIDDLEWARE = [
@@ -57,7 +49,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,7 +64,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -83,25 +74,27 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -116,34 +109,55 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS= [
-    os.path.join(BASE_DIR , "static")
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),"static_cdn")
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"media_cdn")
-
+STATIC_ROOT = os.path.join(BASE_DIR, "../static_cdn")
+MEDIA_ROOT = os.path.join(BASE_DIR, "../media_cdn")
 
 
 TINYMCE_DEFAULT_CONFIG = {
-        'cleanup_on_startup': True,
-        'custom_undo_redo_levels': 20,
-        'selector': 'textarea',
-        'theme': 'modern',
-        'plugins': 'textcolor save link image media preview codesample contextmenu table code lists fullscreen  insertdatetime  nonbreaking contextmenu directionality searchreplace wordcount visualblocks visualchars code fullscreen autolink lists  charmap print  hr anchor pagebreak',
-        'toolbar1': 'save fullscreen bold italic underline,fontselect,fontsizeselect  | forecolor backcolor | alignleft aligncenter alignright alignjustify'
-        '| bullist numlist | outdent indent | table | link image media | codesample | preview code |',
-        'contextmenu': 'formats | link image',
-
-        'menubar': True,
-        'statusbar': True,
-
+    'height':
+    360,
+    'width':
+    970,
+    'cleanup_on_startup':
+    True,
+    'custom_undo_redo_levels':
+    20,
+    'selector':
+    'textarea',
+    'theme':
+    'modern',
+    'plugins':
+    '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak
+            ''',
+    'toolbar1':
+    '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'toolbar2':
+    '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            ''',
+    'contextmenu':
+    'formats | link image',
+    'menubar':
+    True,
+    'statusbar':
+    True,
 }

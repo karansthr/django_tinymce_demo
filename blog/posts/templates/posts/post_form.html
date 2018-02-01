@@ -1,13 +1,13 @@
-{% extends "base.html" %}
+{% extends "posts/base.html" %}
 {% load static %}
 
 {% block content %}
 
-    {{ form.media }}
-    <div class="row form-error card">
+    <div class="row form-error">
         <div class="column" id="content">
           <form  method="post" action='' enctype="multipart/form-data">
                 {% csrf_token %}
+                {{ form.media }}
                 {{ form.as_p  }}
                 <input class="button" type="submit" value="Save">
             </form>

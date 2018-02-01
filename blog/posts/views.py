@@ -1,30 +1,29 @@
-from django.shortcuts import render ,get_object_or_404 , HttpResponseRedirect
-from .models import Post
-from .forms import postform
+from django.views.generic import CreateView
+from django.views.generic.edit import UpdateView
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
-def post_list(request):
-    post_set = Post.objects.all()
-    return render(request,"post_list.html",{'posts':post_set})
-
-def post_detail(request,id=None):
-    article = get_object_or_404(Post , id = id)
-    return render(request,"post_detail.html",{'instance':article})
-
-def post_create(request):
-    print("I was called")
-    form = postform(request.POST or None )
-    if form.is_valid():
-        article = form.save(commit= False)
-        article.save()
-        return HttpResponseRedirect(article.get_absolute_url())
-    return render(request, "post_form.html", {'form':form} )
+from . import models
+from . import forms
 
 
-def post_edit(request,id=None):
-    article = get_object_or_404(Post , id = id)
-    form = postform(request.POST or None, instance  = article )
-    if form.is_valid():
-        article = form.save(commit= False)
-        article.save()
-        return HttpResponseRedirect(article.get_absolute_url())
-    return render(request, "post_form.html", {'form':form , 'instance':article} )
+class PostCreateView(CreateView):
+    form_class = forms.PostForm
+    model = models.Post
+
+
+class PostUpdateView(UpdateView):
+    form_class = forms.PostForm
+    model = models.Post
+    context_object_name = 'post'
+    template_name = 'posts/post_form.html'
+
+
+class PostListView(ListView):
+    model = models.Post
+    context_object_name = 'posts'
+
+
+class PostDetailView(DetailView):
+    model = models.Post
+    context_object_name = 'post'
