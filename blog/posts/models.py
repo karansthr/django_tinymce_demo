@@ -1,10 +1,11 @@
 from django.db import models
 from tinymce import HTMLField
-from django.core.urlresolvers import reverse
+from django.urls import reverse
+
 
 class Post(models.Model):
     title = models.CharField(max_length=120)
-    description = models.TextField(max_length=250,null=True)
+    description = models.TextField(max_length=250, null=True)
     content = HTMLField('Content')
     draft = models.BooleanField(default=False)
 
@@ -12,4 +13,4 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return  reverse("posts:detail", kwargs={"id": self.id})
+        return reverse("posts:detail", kwargs={"pk": self.id})

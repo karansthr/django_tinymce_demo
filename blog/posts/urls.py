@@ -1,10 +1,12 @@
+from django.urls import path
+from .views import (PostCreateView, PostUpdateView, PostListView,
+                    PostDetailView)
 
-from django.conf.urls import url
-from .views import post_create,post_edit,post_list,post_detail
+app_name = 'posts'
 
 urlpatterns = [
-        url(r'^posts/(?P<id>\d+)$',post_detail,name="detail"),
-        url(r'^posts/(?P<id>\d+)/edit/$',post_edit),
-        url(r'^create/$', post_create),
-        url(r'^$',post_list),
+    path('posts/<int:pk>', PostDetailView.as_view(), name="detail"),
+    path('posts/<int:pk>/edit', PostUpdateView.as_view(), name="update"),
+    path('create', PostCreateView.as_view(), name="create"),
+    path('', PostListView.as_view(), name="list"),
 ]
