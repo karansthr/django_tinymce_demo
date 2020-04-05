@@ -1,6 +1,6 @@
 This is a sample repository illustrating how to set up TinyCE editor with filebrowser in a Django site. For syntax highlighting, highlightjs is used.
 
-Complete guide at - https://fosstack.com/how-to-set-up-tinymce-in-django-app/
+Complete guide at - https://karansthr.gitlab.io/fosstack/how-to-set-up-tinymce-in-django-app/
 
 # Installation guide
 
