@@ -2,5 +2,5 @@ Django==2.0.1
 django-filebrowser-no-grappelli==3.7.4
 django-tinymce4-lite==1.7.0
 jsmin==2.2.2
-Pillow==5.0.0
+Pillow==9.3.0
 pytz==2017.3
